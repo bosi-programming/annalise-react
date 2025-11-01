@@ -1,3 +1,3 @@
-export * from './Button';
+export { Button } from './Button';
 export * from './Text';
-export * from './Input';
+export { Input } from './Input';
