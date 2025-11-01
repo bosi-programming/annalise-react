@@ -27,15 +27,16 @@ export interface TextProps {
   size?: TextSize;
   weight?: TextWeight;
   as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'details';
+  className?: string;
 }
 
 export const BASE_CLASS = 'font-[Lora]';
 
-export function Text({ size = 'big', weight = 'normal', children, as }: PropsWithChildren<TextProps>) {
+export function Text({ size = 'big', weight = 'normal', children, as, className }: PropsWithChildren<TextProps>) {
   const Component = getComponent(size, as);
   const sizeClass = getSizeClass(size);
   const weightClass = getWeightClass(weight);
-  const finalClassName = mergeClassNames(BASE_CLASS, sizeClass, weightClass);
+  const finalClassName = mergeClassNames(BASE_CLASS, sizeClass, weightClass, className);
 
   return <Component className={finalClassName}>{children}</Component>;
 }
