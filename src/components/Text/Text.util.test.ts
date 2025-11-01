@@ -23,7 +23,8 @@ describe('getSizeClass', () => {
 describe('getComponent', () => {
   test.each([...Object.values(TextSize), undefined])('should return component for size %s', (size) => {
     if (size !== 'h1' && size !== 'h2' && size !== 'h3') {
-      return expect(getComponent(size)).toBe('p');
+      expect(getComponent(size)).toBe('p');
+      return;
     }
     expect(getComponent(size)).toBe(size);
   });

@@ -28,6 +28,6 @@ export function getSizeClass(size: TextProps['size']) {
 
 export function getComponent(size?: TextProps['size'], as?: TextProps['as']) {
   if (as) return as;
-  if (size !== 'h1' && size !== 'h2' && size !== 'h3') return 'p';
+  if (size && size !== 'h1' && size !== 'h2' && size !== 'h3') return 'p';
   return size || 'p';
 }

@@ -6,12 +6,12 @@ import { BASE_CLASSES, Input } from './Input';
 const onChange = vi.fn();
 
 describe('Input', () => {
-  test('should have base classes', async () => {
+  test('should have base classes', () => {
     render(<Input value="" onChange={onChange} />);
 
     expect(screen.getByRole('textbox')).toHaveClass(BASE_CLASSES);
   });
-  test('should have a placeholder', async () => {
+  test('should have a placeholder', () => {
     render(<Input value="" onChange={onChange} placeholder="test" />);
 
     expect(screen.getByPlaceholderText('test')).toBeInTheDocument();

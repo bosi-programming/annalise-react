@@ -43,12 +43,18 @@ export function Input({
         pattern={pattern}
         disabled={disabled}
         onFocus={(e) => {
-          if (onFocus) return onFocus(e.target.value);
+          if (onFocus) {
+            onFocus(e.target.value);
+          }
         }}
         onBlur={(e) => {
-          if (onBlur) return onBlur(e.target.value);
+          if (onBlur) {
+            onBlur(e.target.value);
+          }
         }}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          onChange(e.target.value);
+        }}
       />
       {error ? (
         <Text className="text-err ml-4" size="small">
