@@ -1,6 +1,7 @@
 export function Logo() {
   return (
     <img
+      data-testid="logo"
       id="image0_353_7334"
       width="33"
       height="33"
