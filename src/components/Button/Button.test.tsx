@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { BASE_CLASSES, Button } from './Button';
+import { BUTTON_BASE_CLASSES, Button } from './Button';
 
 describe('Button variant options', () => {
   it('should have base classes', () => {
     render(<Button variant="primary">Test</Button>);
-    expect(screen.getByRole('button')).toHaveClass(BASE_CLASSES);
+    expect(screen.getByRole('button')).toHaveClass(BUTTON_BASE_CLASSES);
   });
   it('should have primary classes', () => {
     render(<Button variant="primary">Test</Button>);

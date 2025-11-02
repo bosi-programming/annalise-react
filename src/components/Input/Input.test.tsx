@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, test, vi } from 'vitest';
-import { BASE_CLASSES, Input } from './Input';
+import { INPUT_BASE_CLASSES, Input } from './Input';
 
 const onChange = vi.fn();
 
@@ -9,7 +9,7 @@ describe('Input', () => {
   test('should have base classes', () => {
     render(<Input value="" onChange={onChange} />);
 
-    expect(screen.getByRole('textbox')).toHaveClass(BASE_CLASSES);
+    expect(screen.getByRole('textbox')).toHaveClass(INPUT_BASE_CLASSES);
   });
   test('should have a placeholder', () => {
     render(<Input value="" onChange={onChange} placeholder="test" />);

@@ -1,7 +1,7 @@
 import { mergeClassNames } from '../../utils/mergeClassNames';
 import { Text } from '../Text';
 
-export const BASE_CLASSES =
+export const INPUT_BASE_CLASSES =
   'focus:outline-1 focus:outline-offset-2 focus:outline-purple-light bg-input h-12 rounded-full w-full text-white placeholder:text-gray-300 px-5 py-4';
 export interface InputProps {
   className?: string;
@@ -30,7 +30,7 @@ export function Input({
   onFocus,
   onBlur,
 }: InputProps) {
-  const finalClassName = mergeClassNames(BASE_CLASSES, className);
+  const finalClassName = mergeClassNames(INPUT_BASE_CLASSES, className);
   return (
     <div>
       <input

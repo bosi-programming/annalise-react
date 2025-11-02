@@ -11,7 +11,7 @@ const getVariantClass = (variant?: Variant) => {
     .with(undefined, () => '')
     .exhaustive();
 };
-export const BASE_CLASSES = 'cursor-pointer text-white font-bold rounded-full px-5 py-4 hover:bg-purple-900';
+export const BUTTON_BASE_CLASSES = 'cursor-pointer text-white font-bold rounded-full px-5 py-4 hover:bg-purple-900';
 
 interface ButtonProps {
   className?: string;
@@ -20,7 +20,7 @@ interface ButtonProps {
   type?: HTMLButtonElement['type'];
 }
 export function Button({ className, onClick, type, variant, children }: PropsWithChildren<ButtonProps>) {
-  const finalClass = mergeClassNames(BASE_CLASSES, getVariantClass(variant), className);
+  const finalClass = mergeClassNames(BUTTON_BASE_CLASSES, getVariantClass(variant), className);
   return (
     <button type={type} onClick={onClick} className={finalClass}>
       {children}
