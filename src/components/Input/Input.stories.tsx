@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Input, type InputProps } from './Input';
 import { useState } from 'react';
+import { expect, fn } from 'storybook/test';
 
 const meta = {
   title: 'components/Input',
@@ -14,12 +15,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const BaseInputComponent = (props: Omit<InputProps, 'value' | 'onChange'>) => {
+const BaseInputComponent = (props: Omit<InputProps, 'value'>) => {
   const [val, setVal] = useState('');
 
   const handleChange = (newVal: string) => {
     console.log(newVal);
     setVal(newVal);
+    props.onChange(newVal);
   };
 
   return <Input {...props} value={val} onChange={handleChange} />;
@@ -27,6 +29,16 @@ const BaseInputComponent = (props: Omit<InputProps, 'value' | 'onChange'>) => {
 
 export const Primary: Story = {
   render: BaseInputComponent,
-  // @ts-expect-error No need for value or onChange
-  args: {},
+  args: {
+    placeholder: 'Email',
+    onChange: fn(),
+  },
+  play: async ({ args, canvas, userEvent }) => {
+    const emailField = canvas.getByPlaceholderText('Email');
+    await expect(emailField).toBeInTheDocument();
+
+    const email = 'test@test.com';
+    await userEvent.type(emailField, email);
+    await expect(args.onChange).toHaveBeenCalledWith(email);
+  },
 };

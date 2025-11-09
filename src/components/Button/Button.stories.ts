@@ -26,4 +26,8 @@ export const Primary: Story = {
       console.log('clicked');
     },
   },
+  play: async ({ canvas, userEvent }) => {
+    const button = canvas.getByRole('button');
+    await userEvent.click(button);
+  },
 };

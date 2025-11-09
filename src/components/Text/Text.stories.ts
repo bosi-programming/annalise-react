@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Text, TextSize, TextWeight } from './Text';
+import { expect } from 'storybook/test';
 
 const meta = {
   title: 'components/Text',
@@ -21,5 +22,8 @@ export const Primary: Story = {
   args: {
     children: 'Text',
     className: 'text-white',
+  },
+  play: async ({ canvas }) => {
+    await expect(canvas.getByText('Text')).toBeInTheDocument();
   },
 };
