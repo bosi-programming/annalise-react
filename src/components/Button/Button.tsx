@@ -19,7 +19,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: HTMLButtonElement['type'];
 }
-export function Button({ className, onClick, type, variant, children }: PropsWithChildren<ButtonProps>) {
+export function Button({ className, onClick, type, variant = 'primary', children }: PropsWithChildren<ButtonProps>) {
   const finalClass = mergeClassNames(BUTTON_BASE_CLASSES, getVariantClass(variant), className);
   return (
     <button type={type} onClick={onClick} className={finalClass}>

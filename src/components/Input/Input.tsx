@@ -11,7 +11,7 @@ export interface InputProps {
   pattern?: string;
   error?: string;
   name?: string;
-  value: string;
+  value?: string | Date;
   onChange: (val: string) => void;
   onFocus?: (val: string) => void;
   onBlur?: (val: string) => void;
