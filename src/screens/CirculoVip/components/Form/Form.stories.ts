@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Form } from './Form';
 
 const meta = {
-  title: 'Circulo Vip/components/Form',
+  title: 'Screens/Circulo Vip/Form',
   component: Form,
   tags: ['autodocs'],
 } satisfies Meta<typeof Form>;
