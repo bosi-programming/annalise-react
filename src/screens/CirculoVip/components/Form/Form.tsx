@@ -2,23 +2,44 @@ import { Button, Input, Text } from '@/components';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Controller, useForm } from 'react-hook-form';
 import z from 'zod';
-import { onSubmit } from './Form.utils';
+import { useState } from 'react';
+import { onSubmit } from '@/model/postNewsletter';
 
 const schema = z.object({
   name: z.string().optional(),
-  bday: z.iso.date().optional(),
+  bday: z.preprocess((val) => {
+    if (!val) return;
+    if (typeof val === 'string') {
+      const date = new Date(val).toISOString().replace(/T.+/, '');
+      return date;
+    }
+    return val;
+  }, z.iso.date().optional()),
   email: z.email(),
   'tel-national': z.string().optional(),
 });
 
 export function Form() {
+  const [submitError, setSubmitError] = useState<string>();
   const { handleSubmit, control } = useForm({
     resolver: zodResolver(schema),
+    defaultValues: {
+      email: '',
+      bday: '',
+      'tel-national': '',
+      name: '',
+    },
   });
 
   return (
     <form
-      onSubmit={handleSubmit((data) => onSubmit(data)) as () => void}
+      onSubmit={
+        handleSubmit((data) =>
+          onSubmit(data, (error: string) => {
+            setSubmitError(error);
+          }),
+        ) as () => void
+      }
       className="py-17 grid grid-cols-1 gap-3 lg:py-0"
     >
       <Controller
@@ -32,7 +53,12 @@ export function Form() {
         control={control}
         name="bday"
         render={({ field, formState }) => (
-          <Input placeholder="Data de nascimento: DD/MM/AAAA" {...field} error={formState.errors.bday?.message} />
+          <Input
+            placeholder="Data de nascimento: DD/MM/AAAA"
+            {...field}
+            value={field.value as string}
+            error={formState.errors.bday?.message}
+          />
         )}
       />
       <Controller
@@ -52,6 +78,11 @@ export function Form() {
       <Button type="submit">
         <Text weight="bold">Entrar para o Círculo VIP</Text>
       </Button>
+      {submitError ? (
+        <Text className="text-err ml-4" size="small">
+          {submitError}
+        </Text>
+      ) : null}
     </form>
   );
 }

@@ -4,7 +4,8 @@ import { Text } from '@/components/Text';
 import z from 'zod';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { onSubmit } from './Newsletter.utils';
+import { onSubmit } from '@/model/postNewsletter';
+import { useState } from 'react';
 
 export interface NewsletterProps {
   className?: string;
@@ -13,6 +14,7 @@ export interface NewsletterProps {
 const schema = z.object({ email: z.email('Digite um e-mail válido') }).required();
 
 export function Newsletter({ className }: NewsletterProps) {
+  const [submitError, setSubmitError] = useState<string>();
   const {
     handleSubmit,
     control,
@@ -29,7 +31,13 @@ export function Newsletter({ className }: NewsletterProps) {
         livro e fotos do Chicó.
       </Text>
       <form
-        onSubmit={handleSubmit((data) => onSubmit(data)) as () => void}
+        onSubmit={
+          handleSubmit((data) =>
+            onSubmit(data, (error) => {
+              setSubmitError(error);
+            }),
+          ) as () => void
+        }
         className="m-auto flex max-w-md items-center"
       >
         <Controller
@@ -44,6 +52,11 @@ export function Newsletter({ className }: NewsletterProps) {
       {errors.email ? (
         <Text className="text-err ml-4 mt-3" size="small">
           {errors.email.message}
+        </Text>
+      ) : null}
+      {submitError ? (
+        <Text className="text-err ml-4 mt-3" size="small">
+          {submitError}
         </Text>
       ) : null}
     </div>
