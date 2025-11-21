@@ -22,7 +22,7 @@ const schema = z.object({
 
 export function Form() {
   const inputRef = useMask({
-    mask: '(__) _____-____',
+    mask: '(__)_____-____',
     replacement: { _: /\d/ },
   });
   const [submitError, setSubmitError] = useState<string>();
