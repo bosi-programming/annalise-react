@@ -1,8 +1,8 @@
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { CirculoVip } from './screens/CirculoVip';
 import { CirculoVipBoasVindas } from './screens/CirculoVipBoasVindas';
 import { Footer, Header } from './components';
+import './index.css';
 
 function App() {
   return (
