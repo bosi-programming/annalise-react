@@ -1,3 +1,4 @@
+import type { Ref } from 'react';
 import { mergeClassNames } from '../../utils/mergeClassNames';
 import { Text } from '../Text';
 
@@ -11,10 +12,11 @@ export interface InputProps {
   pattern?: string;
   error?: string;
   name?: string;
-  value?: string | Date;
+  value?: string;
   onChange: (val: string) => void;
   onFocus?: (val: string) => void;
   onBlur?: (val: string) => void;
+  ref?: Ref<HTMLInputElement>;
 }
 
 export function Input({
@@ -29,11 +31,13 @@ export function Input({
   onChange,
   onFocus,
   onBlur,
+  ref,
 }: InputProps) {
   const finalClassName = mergeClassNames(INPUT_BASE_CLASSES, className);
   return (
     <div>
       <input
+        ref={ref}
         className={finalClassName}
         name={name}
         autoComplete="on"

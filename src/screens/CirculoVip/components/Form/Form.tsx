@@ -4,6 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import z from 'zod';
 import { useState } from 'react';
 import { onSubmit } from '@/model/postNewsletter';
+import { useMask } from '@react-input/mask';
 
 const schema = z.object({
   name: z.string().optional(),
@@ -20,6 +21,10 @@ const schema = z.object({
 });
 
 export function Form() {
+  const inputRef = useMask({
+    mask: '(__) _____-____',
+    replacement: { _: /\d/ },
+  });
   const [submitError, setSubmitError] = useState<string>();
   const { handleSubmit, control } = useForm({
     resolver: zodResolver(schema),
@@ -72,7 +77,12 @@ export function Form() {
         control={control}
         name="tel-national"
         render={({ field, formState }) => (
-          <Input placeholder="Celular: (DD)00000-0000" {...field} error={formState.errors['tel-national']?.message} />
+          <Input
+            placeholder="Celular: (DD)00000-0000"
+            {...field}
+            ref={inputRef}
+            error={formState.errors['tel-national']?.message}
+          />
         )}
       />
       <Button type="submit">
