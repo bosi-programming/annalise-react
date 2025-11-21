@@ -1,8 +1,15 @@
+import { useLocation } from 'react-router';
 import { Text } from '../Text';
 import { Newsletter } from './components/Newsletter';
 import { Social } from './components/Social';
 
+const PATH_TO_NOT_SHOW_FOOTER = ['circulo-vip/boas-vindas'];
+
 export function Footer() {
+  const location = useLocation();
+  if (PATH_TO_NOT_SHOW_FOOTER.some((path) => location.pathname.includes(path))) {
+    return null;
+  }
   return (
     <div className="lg:px-30 lg:pt-15 px-8">
       <Newsletter className="pb-22" />
