@@ -19,7 +19,7 @@ export function Newsletter({ className }: NewsletterProps) {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(schema) });
+  } = useForm({ resolver: zodResolver(schema), defaultValues: { email: '' } });
 
   return (
     <div className={className}>
