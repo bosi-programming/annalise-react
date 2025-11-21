@@ -7,6 +7,7 @@ export function CirculoVipBoasVindas() {
   const titleSize = isDesktop ? 'evenBiggerTitle' : 'bigTitle';
   return (
     <main className="lg:px-26 flex h-full flex-col justify-center bg-purple-900 bg-[url(/starbg.gif)] bg-cover px-8 bg-blend-color-burn max-lg:min-h-[calc(100dvh-65px)] lg:h-[calc(100dvh-81px)] lg:justify-center lg:gap-8 lg:pt-10">
+      <title>Círculo VIP - Boas Vindas</title>
       <div className="lg:grid lg:grid-cols-2 lg:items-end lg:gap-10">
         <div>
           <Text as="h1" size={titleSize} weight="bold" className="max-lg:pb-13 text-white">
