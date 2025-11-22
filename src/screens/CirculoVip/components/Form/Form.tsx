@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { onSubmit } from '@/model/postNewsletter';
 import { useNavigate } from 'react-router';
 import { PhoneInput } from './components/PhoneInput';
+import { DOB } from './components/DOB';
 
 const schema = z.object({
   name: z.string().optional(),
@@ -57,18 +58,7 @@ export function Form() {
             <Input placeholder="Nome completo" {...field} error={formState.errors.name?.message} />
           )}
         />
-        <Controller
-          control={control}
-          name="bday"
-          render={({ field, formState }) => (
-            <Input
-              placeholder="Data de nascimento: DD/MM/AAAA"
-              {...field}
-              value={field.value as string}
-              error={formState.errors.bday?.message}
-            />
-          )}
-        />
+        <DOB />
         <Controller
           control={control}
           name="email"

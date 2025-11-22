@@ -2,19 +2,19 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { useMask } from '@react-input/mask';
 import { Input } from '@/components';
 
-export function PhoneInput() {
+export function DOB() {
   const inputRef = useMask({
-    mask: '(__) _____-____',
+    mask: '__/__/____',
     replacement: { _: /\d/ },
   });
   const { control } = useFormContext();
   return (
     <Controller
       control={control}
-      name="tel-national"
+      name="bday"
       render={({ field, formState }) => (
         <Input
-          placeholder="Celular: (DD)00000-0000"
+          placeholder="Data de nascimento: DD/MM/AAAA"
           {...field}
           ref={inputRef}
           error={formState.errors['tel-national']?.message as string}
