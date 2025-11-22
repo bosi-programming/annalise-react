@@ -9,6 +9,7 @@ export const TextSize = {
   Small: 'small',
   Details: 'details',
   Terms: 'terms',
+  Heading: 'heading',
   BigTitle: 'bigTitle',
   BiggerTitle: 'biggerTitle',
   EvenBiggerTitle: 'evenBiggerTitle',

@@ -16,6 +16,7 @@ export function getSizeClass(size: TextProps['size']) {
     .with('small', () => 'text-small')
     .with('details', () => 'text-details')
     .with('terms', () => 'text-terms')
+    .with('heading', () => 'text-heading')
     .with('bigTitle', () => 'text-big-title')
     .with('biggerTitle', () => 'text-bigger-title')
     .with('evenBiggerTitle', () => 'text-even-bigger-title')
