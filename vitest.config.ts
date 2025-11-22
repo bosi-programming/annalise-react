@@ -25,7 +25,12 @@ export default defineConfig({
           name: 'unit',
           environment: 'jsdom',
           setupFiles: './src/test/setup.ts',
-          include: ['src/**/*.{test,spec}.ts'],
+          include: ['src/**/*.{test,spec}.ts', 'src/**/*.{test,spec}.tsx'],
+        },
+        resolve: {
+          alias: {
+            '@': fileURLToPath(new URL('./src', import.meta.url)),
+          },
         },
       },
       defineProject({

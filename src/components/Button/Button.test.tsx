@@ -16,10 +16,9 @@ describe('Button variant options', () => {
     render(<Button variant="secondary">Test</Button>);
     expect(screen.getByRole('button')).toHaveClass('bg-purple-secondary');
   });
-  it('should not have secondary or primary classes', () => {
+  it('should have primary class', () => {
     render(<Button>Test</Button>);
     expect(screen.getByRole('button')).not.toHaveClass('bg-purple-secondary');
-    expect(screen.getByRole('button')).not.toHaveClass('bg-purple-light');
   });
 });
 

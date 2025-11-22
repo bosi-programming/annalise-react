@@ -2,7 +2,17 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, test, vi } from 'vitest';
 import { Newsletter } from './Newsletter';
-import * as utils from './Newsletter.utils';
+import * as utils from '@/model/postNewsletter';
+
+const mockUseNavigate = vi.fn();
+
+vi.mock('react-router', async () => {
+  const mod = await vi.importActual('react-router');
+  return {
+    ...mod,
+    useNavigate: () => mockUseNavigate,
+  };
+});
 
 describe('Newsletter', () => {
   test('Should render', () => {
@@ -43,6 +53,6 @@ describe('Newsletter', () => {
     const sendBtn = screen.getByText('Enviar');
     await userEvent.click(sendBtn);
 
-    expect(spy).toHaveBeenCalledWith({ email });
+    expect(spy).toHaveBeenCalledWith({ email }, expect.any(Function), expect.any(Function));
   });
 });

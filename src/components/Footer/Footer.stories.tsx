@@ -1,10 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Footer } from './Footer';
 import { expect } from 'storybook/test';
+import { BrowserRouter } from 'react-router';
+
+const StoryComponent = () => (
+  <BrowserRouter>
+    <Footer />
+  </BrowserRouter>
+);
 
 const meta = {
   title: 'components/Footer',
-  component: Footer,
+  component: StoryComponent,
   tags: ['autodocs'],
 } satisfies Meta<typeof Footer>;
 
