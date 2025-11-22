@@ -6,6 +6,7 @@ import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { onSubmit } from '@/model/postNewsletter';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 export interface NewsletterProps {
   className?: string;
@@ -14,6 +15,7 @@ export interface NewsletterProps {
 const schema = z.object({ email: z.email('Digite um e-mail válido') }).required();
 
 export function Newsletter({ className }: NewsletterProps) {
+  const navigate = useNavigate();
   const [submitError, setSubmitError] = useState<string>();
   const {
     handleSubmit,
@@ -33,9 +35,13 @@ export function Newsletter({ className }: NewsletterProps) {
       <form
         onSubmit={
           handleSubmit((data) =>
-            onSubmit(data, (error) => {
-              setSubmitError(error);
-            }),
+            onSubmit(
+              data,
+              (error) => {
+                setSubmitError(error);
+              },
+              () => navigate('/circulo-vip/boas-vindas'),
+            ),
           ) as () => void
         }
         className="m-auto flex max-w-md items-center"

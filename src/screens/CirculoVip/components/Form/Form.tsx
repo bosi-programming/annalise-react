@@ -5,6 +5,7 @@ import z from 'zod';
 import { useState } from 'react';
 import { onSubmit } from '@/model/postNewsletter';
 import { useMask } from '@react-input/mask';
+import { useNavigate } from 'react-router';
 
 const schema = z.object({
   name: z.string().optional(),
@@ -21,6 +22,7 @@ const schema = z.object({
 });
 
 export function Form() {
+  const navigate = useNavigate();
   const inputRef = useMask({
     mask: '(__)_____-____',
     replacement: { _: /\d/ },
@@ -40,9 +42,13 @@ export function Form() {
     <form
       onSubmit={
         handleSubmit((data) =>
-          onSubmit(data, (error: string) => {
-            setSubmitError(error);
-          }),
+          onSubmit(
+            data,
+            (error: string) => {
+              setSubmitError(error);
+            },
+            () => navigate('/circulo-vip/boas-vindas'),
+          ),
         ) as () => void
       }
       className="py-17 grid grid-cols-1 gap-3 lg:py-0"

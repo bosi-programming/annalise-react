@@ -10,7 +10,11 @@ const normalizeData = (data: SubmitData) => ({
   ...(data.email ? { email: data.email } : {}),
   ...(data['tel-national'] ? { phone: data['tel-national'] } : {}),
 });
-export const onSubmit = async (data: SubmitData, onError: (error: string) => void) => {
+export const onSubmit = async (
+  data: SubmitData,
+  onError: (error: string) => void,
+  navigate: () => Promise<void> | void,
+) => {
   const body = {
     formTemplate: import.meta.env.VITE_FORM_TEMPLATE,
     formAnswers: normalizeData(data),
@@ -23,6 +27,7 @@ export const onSubmit = async (data: SubmitData, onError: (error: string) => voi
       responder: import.meta.env.VITE_RESPONDER,
     });
     await fetch('https://form-service.felipebosi.com/form-response', { body: finalBody, headers, method: 'POST' });
+    await navigate();
   } catch (e) {
     if (e instanceof Error) {
       onError(e.message);
