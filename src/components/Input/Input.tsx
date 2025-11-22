@@ -61,7 +61,7 @@ export function Input({
         }}
       />
       {error ? (
-        <Text className="text-err ml-4" size="small">
+        <Text className="text-err ml-4 mt-1" size="small">
           {error}
         </Text>
       ) : null}
