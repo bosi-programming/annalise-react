@@ -19,6 +19,6 @@ describe('Input', () => {
     await userEvent.type(screen.getByRole('textbox'), '27999999999');
 
     const input = screen.getByRole('textbox');
-    expect(input).toHaveValue('(27)99999-9999');
+    expect(input).toHaveValue('(27) 99999-9999');
   });
 });
