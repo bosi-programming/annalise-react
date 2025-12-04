@@ -24,6 +24,7 @@ body, #storybook-root, .sb-show-main.sb-main-padded {
   --text-details: 0.5rem; 
   --text-terms: 0.4375rem; 
   --text-heading: 5rem;
+  --text-heading-mobile: 2.5rem;
   --text-big-title: 48px; 
   --text-bigger-title: 67px; 
   --text-even-bigger-title: 96px; 

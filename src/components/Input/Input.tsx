@@ -3,7 +3,7 @@ import { mergeClassNames } from '../../utils/mergeClassNames';
 import { Text } from '../Text';
 
 export const INPUT_BASE_CLASSES =
-  'focus:outline-1 focus:outline-offset-2 focus:outline-purple-light bg-input h-12 rounded-full w-full text-white placeholder:text-gray-300 px-5 py-4';
+  'focus:outline-1 focus:outline-offset-2 focus:outline-purple-light bg-input h-12 rounded-full w-full text-white placeholder:text-white px-5 py-4';
 export interface InputProps {
   className?: string;
   placeholder?: string;

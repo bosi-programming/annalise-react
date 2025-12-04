@@ -49,7 +49,7 @@ export function Form() {
             ),
           ) as () => void
         }
-        className="py-17 grid grid-cols-1 gap-3 lg:py-0"
+        className="py-30 grid h-fit max-w-[356px] grid-cols-1 gap-3 lg:w-[356px] lg:py-0"
       >
         <Controller
           control={control}
