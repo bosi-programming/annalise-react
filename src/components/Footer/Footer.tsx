@@ -11,7 +11,7 @@ export function Footer() {
     return null;
   }
   return (
-    <div className="m-auto max-w-[344px] lg:max-w-7xl">
+    <div className="m-8 max-w-[344px] lg:m-auto lg:max-w-7xl">
       <div className="lg:px-30 lg:pt-15">
         <Newsletter className="mb-22" />
         <Social />
