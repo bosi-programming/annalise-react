@@ -24,13 +24,14 @@ export function Newsletter({ className }: NewsletterProps) {
   } = useForm({ resolver: zodResolver(schema), defaultValues: { email: '' } });
 
   return (
-    <div className={className}>
+    <div
+      className={`border-newsletter-border/40 rounded-4xl bg-linear-to-br from-62% border-2 border-solid from-[#6433A1B0]/30 to-[#F472B680]/30 p-8 pb-12 ${className ? className : ''}`}
+    >
       <Text size="h1" as="h2" weight="bold" className="pb-5 text-center leading-none text-white">
         Newsletter
       </Text>
       <Text className="pb-10 text-center leading-none text-white">
-        Vamos ficar pertinho? Compartilho por email o processo de escrita, recomendações literárias, material extra do
-        livro e fotos do Chicó.
+        Falo sobre o processo de escrita, recomendações literárias, material extra do livro e fotos do Chicó.
       </Text>
       <form
         onSubmit={

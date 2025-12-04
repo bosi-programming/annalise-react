@@ -11,9 +11,9 @@ export function Footer() {
     return null;
   }
   return (
-    <div className="m-auto max-w-7xl">
-      <div className="lg:px-30 lg:pt-15 px-8">
-        <Newsletter className="pb-22" />
+    <div className="m-auto max-w-[344px] lg:max-w-7xl">
+      <div className="lg:px-30 lg:pt-15">
+        <Newsletter className="mb-22" />
         <Social />
         <Text className="text-center text-white" size="small">
           Feito com suor, lágrimas e muita ajuda de gente boa demais.
