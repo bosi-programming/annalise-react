@@ -3,7 +3,7 @@ import { Form, Heading } from './components';
 
 export function CirculoVip() {
   return (
-    <div className="m-auto max-w-[1440px]">
+    <div className="m-auto max-w-[1440px] max-lg:min-h-[calc(100vh-80px)]">
       <title>Círculo VIP - #ADE</title>
       <main className="lg:pt-45 lg:px-25 max-w-[1440px] px-8 pt-10 lg:flex lg:h-screen lg:justify-between">
         <div className="max-w-[540px]">
