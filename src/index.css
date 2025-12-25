@@ -43,19 +43,27 @@ body, #storybook-root, .sb-show-main.sb-main-padded {
 
 @font-face {
     font-family: 'Lora';
-    src: asset-url('assets/fonts/Lora/Lora-Bold.woff') format('truetype'),
-         asset-url('assets/fonts/Lora/Lora-Bold.woff2') format('truetype'),
-         asset-url('assets/fonts/Lora/Lora-Bold.ttf') format('truetype');
+    src: url('fonts/Lora-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Lora';
-    src: asset-url('assets/fonts/Lora/Lora-Regular.woff') format('truetype'),
-         asset-url('assets/fonts/Lora/Lora-Regular.woff2') format('truetype'),
-         asset-url('assets/fonts/Lora/Lora-Regular.ttf') format('truetype');
+    src: url('fonts/Lora-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'CormorantGaramond';
+    src: url('fonts/CormorantGaramond-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'CormorantGaramond';
+    src: url('fonts/CormorantGaramond-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}

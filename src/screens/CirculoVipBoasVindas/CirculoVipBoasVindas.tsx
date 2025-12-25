@@ -11,7 +11,7 @@ export function CirculoVipBoasVindas() {
       <title>Círculo VIP - Boas Vindas</title>
       <div className="lg:flex lg:items-end">
         <div>
-          <Text as="h1" size={titleSize} weight="bold" className="max-lg:pb-13 text-white">
+          <Text as="h1" size={titleSize} weight="bold" className="max-lg:pb-13 !font-[CormorantGaramond] text-white">
             Boas-vindas ao Círculo VIP
           </Text>
         </div>
